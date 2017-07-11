@@ -9,6 +9,7 @@ namespace Ulatina.PrograAvanzada.AdventureWorks
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            //prueba commit
         }
     }
 }
