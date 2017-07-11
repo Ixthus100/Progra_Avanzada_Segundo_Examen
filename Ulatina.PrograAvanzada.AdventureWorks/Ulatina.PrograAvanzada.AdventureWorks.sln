@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ulatina.PrograAvanzada.AdventureWorks", "Ulatina.PrograAvanzada.AdventureWorks\Ulatina.PrograAvanzada.AdventureWorks.csproj", "{5221E841-9368-4D44-A4DA-3209A1587674}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ulatina.PrograAvanzada.AW.Model", "Ulatina.PrograAvanzada.AW.Model\Ulatina.PrograAvanzada.AW.Model.csproj", "{56220E5E-4C9F-4760-921D-BA5B4AEE3D6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ulatina.PrograAvanzada.AW.Wcf", "Ulatina.PrograAvanzada.AW.Wcf\Ulatina.PrograAvanzada.AW.Wcf.csproj", "{D75C3361-B89C-4220-93F1-AA6C506DD5B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{5221E841-9368-4D44-A4DA-3209A1587674}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5221E841-9368-4D44-A4DA-3209A1587674}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5221E841-9368-4D44-A4DA-3209A1587674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56220E5E-4C9F-4760-921D-BA5B4AEE3D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56220E5E-4C9F-4760-921D-BA5B4AEE3D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56220E5E-4C9F-4760-921D-BA5B4AEE3D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56220E5E-4C9F-4760-921D-BA5B4AEE3D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D75C3361-B89C-4220-93F1-AA6C506DD5B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D75C3361-B89C-4220-93F1-AA6C506DD5B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D75C3361-B89C-4220-93F1-AA6C506DD5B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D75C3361-B89C-4220-93F1-AA6C506DD5B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
