@@ -25,5 +25,23 @@ namespace Ulatina.PrograAvanzada.AW.Wcf.Repositorio
             var losProductos = _Contexto.Product.Where(p => elPrecioInferior <= p.ListPrice && p.ListPrice <= elPrecioSuperior).ToList();
             return losProductos;
         }
+
+        public IList<Model.Product> EncontrarProductoPorHileraNombre(string laHilera)
+        {
+            var losProductos = _Contexto.Product.Where(p => p.Name.Contains(laHilera)).ToList();
+            return losProductos;
+        }
+
+        public IList<Model.Product> EncontrarProductosPorHileraSubcategoria(string laHilera)
+        {
+            var losProductos = _Contexto.Product.Join(_Contexto.ProductSubcategory, product => product.ProductSubcategoryID, subcategory => subcategory.ProductSubcategoryID, (product, subcategory) => product).Where(products => products.ProductSubcategory.Name.Contains(laHilera)).ToList();
+            return losProductos;
+        }
+
+        public IList<Model.Product> EncontrarProductosPorColor(string elColor)
+        {
+            var losProductos = _Contexto.Product.Where(p => p.Color.Equals(elColor)).ToList();
+            return losProductos;
+        }
     }
 }

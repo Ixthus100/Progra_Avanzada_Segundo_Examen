@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using Ulatina.PrograAvanzada.AW.Model;
 
 namespace Ulatina.PrograAvanzada.AW.Wcf
 {
@@ -12,6 +13,27 @@ namespace Ulatina.PrograAvanzada.AW.Wcf
     // NOTE: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class Service1 : IService1
     {
+        public IList<Product> EncontrarProductosPorHileraSubcategoria(string laHilera)
+        {
+            var laAccion = new Acciones.Productos();
+            var elProducto = laAccion.EncontrarProductosPorHileraSubcategoria(laHilera);
+            return elProducto;
+        }
+
+        public IList<Product> EncontrarProductosPorColor(string elColor) //TAREA
+        {
+            var laAccion = new Acciones.Productos();
+            var elProducto = laAccion.EncontrarProductosPorColor(elColor);
+            return elProducto;
+        }
+
+        public IList<Product> EncontrarProductosPorHileraNombre(string laHilera) //TAREA
+        {
+            var laAccion = new Acciones.Productos();
+            var elProducto = laAccion.EncontrarProductoPorHileraNombre(laHilera);
+            return elProducto;
+        }
+
         public Model.Product EncontrarProductoPorNumero(string elNumero)
         {
             var laAccion = new Acciones.Productos();

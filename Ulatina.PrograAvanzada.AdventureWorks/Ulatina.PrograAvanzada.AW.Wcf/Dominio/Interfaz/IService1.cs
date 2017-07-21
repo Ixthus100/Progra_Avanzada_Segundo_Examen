@@ -25,6 +25,15 @@ namespace Ulatina.PrograAvanzada.AW.Wcf
         [OperationContract]
         IList <Model.Product> EncontrarProductoPorRangoDePrecio(decimal elPrecioInferior, decimal elPrecioSuperior);
 
+        [OperationContract]
+        IList<Model.Product> EncontrarProductosPorHileraNombre(string laHilera);
+
+        [OperationContract]
+        IList<Model.Product> EncontrarProductosPorColor(string elColor);
+
+        [OperationContract]
+        IList<Model.Product> EncontrarProductosPorHileraSubcategoria(string laHilera);
+
         // TODO: agregue aquí sus operaciones de servicio
     }
 
