@@ -34,6 +34,12 @@ namespace Ulatina.PrograAvanzada.AW.Wcf
         [OperationContract]
         IList<Model.Product> EncontrarProductosPorHileraSubcategoria(string laHilera);
 
+        [OperationContract]
+        IList<Model.Product> EncontrarProductosPorHileraModelo(string laHilera);
+
+        [OperationContract]
+        IList<Model.Product> EncontrarProductosConReview();
+
         // TODO: agregue aquí sus operaciones de servicio
     }
 

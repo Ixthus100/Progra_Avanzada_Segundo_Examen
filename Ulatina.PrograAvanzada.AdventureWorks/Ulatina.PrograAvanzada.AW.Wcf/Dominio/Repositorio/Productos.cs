@@ -32,6 +32,18 @@ namespace Ulatina.PrograAvanzada.AW.Wcf.Repositorio
             return losProductos;
         }
 
+        public IList<Model.Product> EncontrarProductosConReview()
+        {
+            var losProductos = _Contexto.Product.Join(_Contexto.ProductReview, product => product.ProductID, review => review.ProductID, (product, review) => product).ToList();
+            return losProductos;
+        }
+
+        public IList<Model.Product> EncontrarProductosPorHileraModelo(string laHilera)
+        {
+            var losProductos = _Contexto.Product.Join(_Contexto.ProductModel, product => product.ProductModelID, model => model.ProductModelID, (product, model) => product).Where(products => products.ProductModel.Name.Contains(laHilera)).ToList();
+            return losProductos;
+        }
+
         public IList<Model.Product> EncontrarProductosPorHileraSubcategoria(string laHilera)
         {
             var losProductos = _Contexto.Product.Join(_Contexto.ProductSubcategory, product => product.ProductSubcategoryID, subcategory => subcategory.ProductSubcategoryID, (product, subcategory) => product).Where(products => products.ProductSubcategory.Name.Contains(laHilera)).ToList();

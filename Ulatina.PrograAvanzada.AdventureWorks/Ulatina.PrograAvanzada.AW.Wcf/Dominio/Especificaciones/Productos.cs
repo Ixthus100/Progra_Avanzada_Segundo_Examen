@@ -30,6 +30,20 @@ namespace Ulatina.PrograAvanzada.AW.Wcf.Especificaciones
             return elProducto;
         }
 
+        public IList<Model.Product> EncontrarProductosConReview()
+        {
+            var elRepositorio = new Repositorio.Productos();
+            var elProducto = elRepositorio.EncontrarProductosConReview();
+            return elProducto;
+        }
+
+        public IList<Model.Product> EncontrarProductosPorHileraModelo(string laHilera)
+        {
+            var elRepositorio = new Repositorio.Productos();
+            var elProducto = elRepositorio.EncontrarProductosPorHileraModelo(laHilera);
+            return elProducto;
+        }
+
         public IList<Model.Product> EncontrarProductosPorHileraSubcategoria(string laHilera)
         {
             var elRepositorio = new Repositorio.Productos();

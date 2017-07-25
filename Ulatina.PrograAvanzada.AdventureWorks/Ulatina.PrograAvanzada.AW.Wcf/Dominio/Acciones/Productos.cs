@@ -23,6 +23,20 @@ namespace Ulatina.PrograAvanzada.AW.Wcf.Acciones
             return elProducto;
         }
 
+        public IList<Model.Product> EncontrarProductosConReview()
+        {
+            var laEspecificacion = new Especificaciones.Productos();
+            var elProducto = laEspecificacion.EncontrarProductosConReview();
+            return elProducto;
+        }
+
+        public IList<Model.Product> EncontrarProductosPorHileraModelo(string laHilera)
+        {
+            var laEspecificacion = new Especificaciones.Productos();
+            var elProducto = laEspecificacion.EncontrarProductosPorHileraModelo(laHilera);
+            return elProducto;
+        }
+
         public IList<Model.Product> EncontrarProductosPorHileraSubcategoria(string laHilera)
         {
             var laEspecificacion = new Especificaciones.Productos();
