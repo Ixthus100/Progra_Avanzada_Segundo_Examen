@@ -13,6 +13,20 @@ namespace Ulatina.PrograAvanzada.AW.Wcf
     // NOTE: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class Service1 : IService1
     {
+        public IList<Product> ListarTodos()
+        {
+            var laAccion = new Acciones.Productos();
+            var elProducto = laAccion.ListarTodos();
+            return elProducto;
+        }
+
+        public IList<Product> EncontrarProductosPorRangoDeFecha(DateTime? fechaInicial, DateTime? fechaFinal)
+        {
+            var laAccion = new Acciones.Productos();
+            var elProducto = laAccion.EncontrarProductosPorRangoDeFecha(fechaInicial, fechaFinal);
+            return elProducto;
+        }
+
         public IList<Product> EncontrarProductosConReview()
         {
             var laAccion = new Acciones.Productos();
@@ -80,5 +94,7 @@ namespace Ulatina.PrograAvanzada.AW.Wcf
             }
             return composite;
         }
+
+        
     }
 }

@@ -3,12 +3,21 @@ using System.Collections.Generic;
 
 namespace Ulatina.PrograAvanzada.AW.Wcf.Acciones
 {
-    internal class Productos
+    public class Productos
     {
         public Productos()
         {
         }
+        public IList<Model.Product> ListarTodos() //PENDIENTE
+        {
+            throw new NotImplementedException();
+        }
 
+        public IList<Model.Product> EncontrarProductosPorRangoDeFecha(DateTime? fechaInicial, DateTime? fechaFinal)
+        {
+            throw new NotImplementedException(); //PENDIENTE
+        }
+        
         public Model.Product EncontrarProductoPorNumero(string elNumero)
         {
             var laEspecificacion = new Especificaciones.Productos();
@@ -29,7 +38,7 @@ namespace Ulatina.PrograAvanzada.AW.Wcf.Acciones
             var elProducto = laEspecificacion.EncontrarProductosConReview();
             return elProducto;
         }
-
+        
         public IList<Model.Product> EncontrarProductosPorHileraModelo(string laHilera)
         {
             var laEspecificacion = new Especificaciones.Productos();

@@ -26,6 +26,9 @@ namespace Ulatina.PrograAvanzada.AW.Wcf
         IList <Model.Product> EncontrarProductoPorRangoDePrecio(decimal elPrecioInferior, decimal elPrecioSuperior);
 
         [OperationContract]
+        IList<Model.Product> ListarTodos();
+
+        [OperationContract]
         IList<Model.Product> EncontrarProductosPorHileraNombre(string laHilera);
 
         [OperationContract]
@@ -39,6 +42,9 @@ namespace Ulatina.PrograAvanzada.AW.Wcf
 
         [OperationContract]
         IList<Model.Product> EncontrarProductosConReview();
+
+        [OperationContract]
+        IList<Model.Product> EncontrarProductosPorRangoDeFecha(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal);
 
         // TODO: agregue aquí sus operaciones de servicio
     }

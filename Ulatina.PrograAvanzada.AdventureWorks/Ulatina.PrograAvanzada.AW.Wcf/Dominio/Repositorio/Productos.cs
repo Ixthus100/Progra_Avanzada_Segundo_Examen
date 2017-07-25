@@ -16,7 +16,7 @@ namespace Ulatina.PrograAvanzada.AW.Wcf.Repositorio
         public Model.Product EncontrarProductoPorNumero(string elNumero)
         {
             Model.Product elProducto = new Model.Product();
-            elProducto =_Contexto.Product.Include("ProductSubcategory, ProductModel, ProductReview, ProductSubcategory.ProductCategory").Where(p => p.ProductNumber.Equals(elNumero)).FirstOrDefault();
+            elProducto =_Contexto.Product.Include("ProductSubcategory").Include("ProductModel").Include("ProductReview").Include("ProductSubcategory.ProductCategory").Where(p => p.ProductNumber.Equals(elNumero)).FirstOrDefault();
             return elProducto;
         }
 
@@ -34,13 +34,15 @@ namespace Ulatina.PrograAvanzada.AW.Wcf.Repositorio
 
         public IList<Model.Product> EncontrarProductosConReview()
         {
-            var losProductos = _Contexto.Product.Join(_Contexto.ProductReview, product => product.ProductID, review => review.ProductID, (product, review) => product).ToList();
+            var losProductos = _Contexto.Product.Include("ProductSubcategory").Include("ProductModel").Include("ProductReview").Include("ProductSubcategory.ProductCategory").Where(p => p.ProductReview != null).ToList();
             return losProductos;
         }
 
         public IList<Model.Product> EncontrarProductosPorHileraModelo(string laHilera)
         {
-            var losProductos = _Contexto.Product.Join(_Contexto.ProductModel, product => product.ProductModelID, model => model.ProductModelID, (product, model) => product).Where(products => products.ProductModel.Name.Contains(laHilera)).ToList();
+            /*var losProductos = _Contexto.Product.Join(_Contexto.ProductModel, product => product.ProductModelID, model => model.ProductModelID, (product, model) => product).Where(products => products.ProductModel.Name.Contains(laHilera)).ToList();
+            return losProductos;*/
+            var losProductos = _Contexto.Product.Include("ProductSubcategory").Include("ProductModel").Include("ProductReview").Include("ProductSubcategory.ProductCategory").Where(p => p.ProductModel.Name.Contains(laHilera)).ToList();
             return losProductos;
         }
 
