@@ -26,18 +26,33 @@ namespace Ulatina.PrograAvanzada.AW.Wcf.Repositorio
             return losProductos;
         }
 
+        // 1
         public IList<Model.Product> EncontrarProductoPorHileraNombre(string laHilera)
         {
             var losProductos = _Contexto.Product.Where(p => p.Name.Contains(laHilera)).ToList();
             return losProductos;
         }
 
-        public IList<Model.Product> EncontrarProductosConReview()
+        // 2
+
+        // 3
+        public IList<Model.Product> EncontrarProductosPorColor(string elColor)
         {
-            var losProductos = _Contexto.Product.Include("ProductSubcategory").Include("ProductModel").Include("ProductReview").Include("ProductSubcategory.ProductCategory").Where(p => p.ProductReview != null).ToList();
+            var losProductos = _Contexto.Product.Where(p => p.Color.Equals(elColor)).ToList();
             return losProductos;
         }
 
+        // 4
+        public IList<Model.Product> EncontrarProductosPorHileraSubcategoria(string laHilera)
+        {
+            /*var losProductos = _Contexto.Product.Join(_Contexto.ProductSubcategory, product => product.ProductSubcategoryID, subcategory => subcategory.ProductSubcategoryID, (product, subcategory) => product).Where(products => products.ProductSubcategory.Name.Contains(laHilera)).ToList(); */
+            var losProductos = _Contexto.Product.Include("ProductSubcategory").Include("ProductModel").Include("ProductReview").Include("ProductSubcategory.ProductCategory").Where(p => p.ProductSubcategory.Name.Contains(laHilera)).ToList();
+            return losProductos;
+        }
+
+        // 5
+
+        // 6
         public IList<Model.Product> EncontrarProductosPorHileraModelo(string laHilera)
         {
             /*var losProductos = _Contexto.Product.Join(_Contexto.ProductModel, product => product.ProductModelID, model => model.ProductModelID, (product, model) => product).Where(products => products.ProductModel.Name.Contains(laHilera)).ToList();
@@ -46,15 +61,10 @@ namespace Ulatina.PrograAvanzada.AW.Wcf.Repositorio
             return losProductos;
         }
 
-        public IList<Model.Product> EncontrarProductosPorHileraSubcategoria(string laHilera)
+        // 7
+        public IList<Model.Product> EncontrarProductosConReview()
         {
-            var losProductos = _Contexto.Product.Join(_Contexto.ProductSubcategory, product => product.ProductSubcategoryID, subcategory => subcategory.ProductSubcategoryID, (product, subcategory) => product).Where(products => products.ProductSubcategory.Name.Contains(laHilera)).ToList();
-            return losProductos;
-        }
-
-        public IList<Model.Product> EncontrarProductosPorColor(string elColor)
-        {
-            var losProductos = _Contexto.Product.Where(p => p.Color.Equals(elColor)).ToList();
+            var losProductos = _Contexto.Product.Include("ProductSubcategory").Include("ProductModel").Include("ProductReview").Include("ProductSubcategory.ProductCategory").Where(p => p.ProductReview != null).ToList();
             return losProductos;
         }
     }
